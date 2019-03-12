@@ -75,7 +75,7 @@ recorder:
 frontend:
   javascript_version: latest
 
-discovery:
+# discovery:
 
 ios:
   # TODO: add notifications
