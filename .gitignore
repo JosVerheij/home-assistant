@@ -1,0 +1,22 @@
+# Blacklist files/folders in same directory as the .gitignore file
+/*
+
+# Ignore all files named .DS_Store or ending with .log
+**/.DS_Store
+**.log
+
+# Git
+!.gitignore
+
+# Travis
+!.travis.yaml
+!travis_secrets.yaml
+
+# Repo
+!README.md
+
+# Home Assistant
+!configuration.yaml
+!ui-lovelace.yaml
+
+!includes/

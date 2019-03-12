@@ -1,0 +1,93 @@
+#================================================
+# Turn lights on or off
+#------------------------------------------------
+
+# Kitchen Lights
+# on
+- alias: Turn kitchen lights on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion
+    to: 'on'
+  condition:
+  action:
+    - service: light.turn_on
+      entity_id: light.kitchen
+# off
+- alias: Turn kitchen lights off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen
+
+# Hall Lights
+# on
+- alias: Turn Hall lights on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hall_motion
+    to: 'on'
+  condition:
+  action:
+    - service: light.turn_on
+      entity_id: light.hall
+# off
+- alias: Turn Hall lights off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hall_motion
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+    - service: light.turn_off
+      entity_id: light.hall
+
+# Bathroom Lights
+# on
+- alias: Turn bathroom lights on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_motion
+    to: 'on'
+  condition:
+  action:
+    - service: light.turn_on
+      entity_id: light.bathroom
+# off
+- alias: Turn bathroom lights off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_motion
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+    - service: light.turn_off
+      entity_id: light.bathroom
+
+# Storage Lights
+# on
+- alias: Turn storage lights on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.storage_door_motion
+    to: 'on'
+  condition:
+  action:
+    - service: light.turn_on
+      entity_id: light.storage
+# off
+- alias: Turn storage lights off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.storage_door_motion
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.storage

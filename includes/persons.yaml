@@ -1,0 +1,10 @@
+#================================================
+# PERSONS
+#------------------------------------------------
+
+- name: Jos
+  id: 4019b18dbd5349f7a4d43edc3ec08e54
+  device_trackers:
+    - device_tracker.iphone
+    - device_tracker.mbp
+    - device_tracker.joss_applewatch

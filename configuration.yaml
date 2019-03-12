@@ -1,0 +1,184 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 2
+  unit_system: metric
+  time_zone: Europe/Amsterdam
+  # customize: !include includes/customize.yaml
+  # customize_glob: !include includes/customise_glob.yaml
+  # packages: !include_dir_named packages
+  auth_providers:
+    - type: homeassistant
+      trusted_networks:
+        - 127.0.0.1
+        - ::1
+        - 172.20.0.0/24
+        - 192.168.0.1/24
+        - fd00::/8
+  auth_mfa_modules:
+    - type: totp
+
+http:
+  api_password: !secret http_password
+  base_url: https://josverheij.synology.com
+  # cors_allowed_origins:
+  #   - https://google.com
+  #   - https://www.home-assistant.io
+  #   - https://josverheij.synology.me
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - ::1
+    - 172.20.0.1
+    - 172.20.0.2
+    - 192.168.2.1
+    - 192.168.2.5
+  # ip_ban_enabled: true
+  # login_attempts_threshold: 5
+
+system_health:
+
+history:
+  # exclude:
+  #   domains:
+  #     - automation
+  #     - weblink
+  #     - updater
+  # include:
+  #   domains:
+  #     - sensor
+  #     - switch
+  #     - media_player
+
+config:
+
+updater:
+
+recorder:
+  # db_url: !secret db_url
+  purge_interval: 1
+  purge_keep_days: 10
+  # exclude:
+  #   domains:
+  #     - automation
+  #     - weblink
+  #     - updater
+  #     - media_player
+  include:
+    domains:
+      - sensor
+      - binary_sensor
+      - switch
+      - climate
+
+frontend:
+  javascript_version: latest
+
+# discovery:
+
+ios:
+  # TODO: add notifications
+  # see: https://www.home-assistant.io/docs/ecosystem/ios/notifications/actions/
+
+# influxdb:
+#   host: !secret influxdb_host
+#   database: !secret influxdb_database
+#   username: !secret influxdb_username
+#   password: !secret influxdb_password
+
+map:
+
+sun:
+
+conversation:
+  # TODO: add conversation scenes
+  # see: https://www.home-assistant.io/components/conversation/
+
+logbook:
+
+# cloud:
+
+# ===============================================
+# COMPONENTS
+# -----------------------------------------------
+
+asuswrt:
+  host: !secret router_ip
+  username: !secret router_username
+  password: !secret router_password
+
+hue:
+  bridges:
+    - host: !secret hue_ip
+      allow_unreachable: true
+      allow_hue_groups: true
+
+# emulated_hue:
+#   listen_port: 80
+#   host_ip: !secret emulated_hue_ip
+
+zwave:
+  usb_path: /dev/zwave
+  network_key: !secret zwave_networkkey
+
+remote:
+  - platform: harmony
+    name: !secret harmony_name
+    host: !secret harmony_ip
+
+tts:
+  - platform: google
+    language: 'en'
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+
+lovelace:
+  # mode: yaml
+
+homekit:
+  port: 51828
+  filter:
+    include_entities:
+      - input_boolean.jos_present
+
+
+# ================================================
+# INCLUDES
+# ------------------------------------------------
+
+# Single Files
+
+binary_sensor: !include includes/binary_sensors.yaml
+# camera: !include includes/cameras.yaml
+# climate: !include includes/climate.yaml
+device_tracker: !include includes/device_trackers.yaml
+# history_graph: !include includes/history_graph.yaml
+input_boolean: !include includes/input_boolean.yaml
+# input_datetime: !include includes/input_datetime.yaml
+# input_select: !include includes/input_select.yaml
+# logger: !include includes/logger.yaml
+# media_player: !include includes/media_players.yaml
+# notify: !include includes/notify.yaml
+person: !include includes/persons.yaml
+# scene: !include includes/scenes.yaml
+# switch: !include includes/switch.yaml
+# weblink: !include includes/weblink.yaml
+
+# REMOVE THESE------------------------
+# sensor: !include includes/sensors.yaml
+# script: !include includes/scripts.yaml
+# END REMOVE THESE--------------------
+
+# Merge List
+
+automation: !include_dir_merge_list includes/automation
+# sensor: !include_dir_merge_list includes/sensors
+# shell_command: !include_dir_merge_named includes/shell_command
+# zone: !include_dir_merge_list includes/zone
+
+# Merge Named
+# group: !include_dir_merge_named includes/group
+# script: !include_dir_merge_named includes/scripts
