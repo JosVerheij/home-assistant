@@ -6,7 +6,7 @@
   device_class: 'presence'
   prior: 0.1
   probability_threshold: 0.9
-  # observations:
+  observations:
   #   - entity_id: 'switch.kitchen_lights'
   #     prob_given_true: 0.6
   #     prob_given_false: 0.2
