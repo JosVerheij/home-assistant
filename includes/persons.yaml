@@ -2,8 +2,8 @@
 # PERSONS
 #------------------------------------------------
 
-- name: Jos
-  id: 4019b18dbd5349f7a4d43edc3ec08e54
+- name: Jos Verheij
+  id: 075fb8eac6fe4a2690b7d7e89d83813a
   device_trackers:
     - device_tracker.iphone
     - device_tracker.mbp
