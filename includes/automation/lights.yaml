@@ -76,7 +76,7 @@
 - alias: Turn storage lights on
   trigger:
     platform: state
-    entity_id: binary_sensor.storage_door_motion
+    entity_id: binary_sensor.storage_door_open
     to: 'on'
   condition:
   action:
@@ -86,7 +86,7 @@
 - alias: Turn storage lights off
   trigger:
     platform: state
-    entity_id: binary_sensor.storage_door_motion
+    entity_id: binary_sensor.storage_door_open
     to: 'off'
   action:
     - service: light.turn_off
