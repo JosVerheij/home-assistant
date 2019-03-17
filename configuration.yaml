@@ -119,7 +119,7 @@ hue:
 #   host_ip: !secret emulated_hue_ip
 
 zwave:
-  usb_path: /dev/zwave
+  usb_path: !secret zwave_path
   network_key: !secret zwave_networkkey
 
 remote:
