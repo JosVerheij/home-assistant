@@ -21,7 +21,7 @@ homeassistant:
 
 http:
   api_password: !secret http_password
-  base_url: https://josverheij.synology.com
+  base_url: https://192.168.2.5
   # cors_allowed_origins:
   #   - https://google.com
   #   - https://www.home-assistant.io
@@ -119,7 +119,7 @@ hue:
 #   host_ip: !secret emulated_hue_ip
 
 zwave:
-  
+
 remote:
   - platform: harmony
     name: !secret harmony_name
