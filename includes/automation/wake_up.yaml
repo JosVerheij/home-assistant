@@ -1,0 +1,8 @@
+# ================================================
+# WAKE UP AUTOMATION
+# ------------------------------------------------
+
+- alias: Wake Up Automation
+  trigger:
+    platform: state
+    entity_id: input_datetime.wakeup_time
