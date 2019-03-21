@@ -4,5 +4,8 @@
 
 - alias: Wake Up Automation
   trigger:
-    platform: state
-    entity_id: input_datetime.wakeup_time
+    platform: template
+    value_template: value_template: "{{ states('sensor.time') == (states.input_datetime.bedroom_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+  action:
+    service: tbd
+    entity_id: tbd
