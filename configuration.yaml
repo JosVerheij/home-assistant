@@ -140,7 +140,7 @@ homekit:
   port: 51828
   filter:
     include_entities:
-      - input_boolean.jos_present
+      - input_boolean.homekit_present_jos
 
 
 # ================================================
