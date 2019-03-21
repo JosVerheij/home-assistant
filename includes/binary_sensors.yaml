@@ -3,12 +3,18 @@
 # ------------------------------------------------
 
 - platform: bayesian
+  name: 'bayesian_presence_jos'
   device_class: 'presence'
-  prior: 0.1
+  prior: 0.7
   probability_threshold: 0.9
   observations:
-  #   - entity_id: 'switch.kitchen_lights'
-  #     prob_given_true: 0.6
-  #     prob_given_false: 0.2
-  #     platform: 'state'
-  #     to_state: 'on'
+    - entity_id: 'input_boolean.homekit_present_jos'
+      prob_given_true: 0.9
+      prob_given_false: 0.2
+      platform: 'state'
+      to_state: 'on'
+    - entity_id: 'device_tracker.iphone'
+      prob_given_true: 0.5
+      prob_given_false: 0.2
+      platform: 'state'
+      to_state: 'home'
